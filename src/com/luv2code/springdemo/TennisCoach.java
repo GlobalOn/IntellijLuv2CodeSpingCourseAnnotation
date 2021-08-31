@@ -6,6 +6,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class TennisCoach implements Coach{
 
+    //Field injection
+    //Not recommended way of Injection cause of 2 expensive injecting
+    //Uses reflection under the hood.
+    @Autowired
     private FortuneService fortuneService;
 
 //    @Autowired
@@ -21,10 +25,10 @@ public class TennisCoach implements Coach{
 
     //Using annotations we can inject by methods with any names (NOT ONLY SETTERS)
     //The main thing is to use @Autowired annotation
-    @Autowired
-    public void blablaFooBla(FortuneService fortuneService) {
-        this.fortuneService = fortuneService;
-    }
+//    @Autowired
+//    public void blablaFooBla(FortuneService fortuneService) {
+//        this.fortuneService = fortuneService;
+//    }
 
     @Override
     public String getDailyWorkout() {
