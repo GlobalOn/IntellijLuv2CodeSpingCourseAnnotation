@@ -23,10 +23,12 @@ public class AnnotationJavaApp {
         }
 
         //Get the bean from Spring container
-        MathTeacher tennisCoach = context.getBean("mathTeacher", MathTeacher.class);
+//        MathTeacher tennisCoach = context.getBean("mathTeacher", MathTeacher.class);
+        TennisCoach tennisCoach = context.getBean("tennisCoach", TennisCoach.class);
 
         //Call a method ot the bean
         System.out.println(tennisCoach.getDailyWorkout());
+        System.out.println(tennisCoach.getDailyFortune());
 
         //Close context
         context.close();

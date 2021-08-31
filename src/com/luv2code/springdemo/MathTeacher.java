@@ -8,4 +8,9 @@ public class MathTeacher  implements Coach{
     public String getDailyWorkout() {
         return "Calculate 5 exercises!";
     }
+
+    @Override
+    public String getDailyFortune() {
+        return "Math your task!";
+    }
 }
