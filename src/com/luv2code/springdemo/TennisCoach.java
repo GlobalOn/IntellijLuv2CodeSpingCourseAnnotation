@@ -8,8 +8,21 @@ public class TennisCoach implements Coach{
 
     private FortuneService fortuneService;
 
+//    @Autowired
+//    public TennisCoach(FortuneService fortuneService) {
+//        this.fortuneService = fortuneService;
+//    }
+
+    //Setter Injection
+//    @Autowired
+//    public void setFortuneService(FortuneService fortuneService) {
+//        this.fortuneService = fortuneService;
+//    }
+
+    //Using annotations we can inject by methods with any names (NOT ONLY SETTERS)
+    //The main thing is to use @Autowired annotation
     @Autowired
-    public TennisCoach(FortuneService fortuneService) {
+    public void blablaFooBla(FortuneService fortuneService) {
         this.fortuneService = fortuneService;
     }
 
