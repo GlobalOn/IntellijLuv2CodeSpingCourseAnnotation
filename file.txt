@@ -1,0 +1,2 @@
+file.txt.name = file
+file.txt.address = src
