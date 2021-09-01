@@ -5,8 +5,10 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 @Component
-@Scope("prototype")
 public class TennisCoach implements Coach {
 
     //Field injection
@@ -39,7 +41,21 @@ public class TennisCoach implements Coach {
         return "TennisDailyWorkout";
     }
 
+
     public String getDailyFortune() {
         return fortuneService.getFortune();
     }
+
+    //define my init method
+    @PostConstruct
+    public void postConstructMethod() {
+        System.out.println("@PostConstruct method is running!");
+    }
+    //define my destroy method
+    @PreDestroy
+    public void preDestroy() {
+        System.out.println("@PreDestroy method is running!");
+    }
+
+
 }
