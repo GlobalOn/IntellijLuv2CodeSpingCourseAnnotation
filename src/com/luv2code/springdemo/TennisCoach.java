@@ -2,7 +2,6 @@ package com.luv2code.springdemo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -19,7 +18,7 @@ public class TennisCoach implements Coach {
     private FortuneService fortuneService;
 
     @Autowired
-    public TennisCoach(@Qualifier("fileFortuneService")FortuneService fortuneService) {
+    public TennisCoach(@Qualifier("fileFortuneService") FortuneService fortuneService) {
         this.fortuneService = fortuneService;
     }
 
@@ -51,6 +50,7 @@ public class TennisCoach implements Coach {
     public void postConstructMethod() {
         System.out.println("@PostConstruct method is running!");
     }
+
     //define my destroy method
     @PreDestroy
     public void preDestroy() {
