@@ -4,6 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 @Component
 public class TennisCoach implements Coach {
 
@@ -15,7 +18,7 @@ public class TennisCoach implements Coach {
     private FortuneService fortuneService;
 
     @Autowired
-    public TennisCoach(@Qualifier("fileFortuneService")FortuneService fortuneService) {
+    public TennisCoach(@Qualifier("fileFortuneService") FortuneService fortuneService) {
         this.fortuneService = fortuneService;
     }
 
@@ -37,7 +40,22 @@ public class TennisCoach implements Coach {
         return "TennisDailyWorkout";
     }
 
+
     public String getDailyFortune() {
         return fortuneService.getFortune();
     }
+
+    //define my init method
+    @PostConstruct
+    public void postConstructMethod() {
+        System.out.println("@PostConstruct method is running!");
+    }
+
+    //define my destroy method
+    @PreDestroy
+    public void preDestroy() {
+        System.out.println("@PreDestroy method is running!");
+    }
+
+
 }
